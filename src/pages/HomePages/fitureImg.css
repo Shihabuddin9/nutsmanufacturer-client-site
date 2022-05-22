@@ -1,0 +1,9 @@
+.fitureImg {
+    height: 450px;
+}
+
+@media only screen and (max-width: 767px) {
+    .fitureImg {
+        height: 200px;
+    }
+}
