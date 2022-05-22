@@ -1,0 +1,7 @@
+.not-found {
+    color: #000000;
+    background: #FFFFFF;
+    text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
+    font-size: 160px;
+    font-weight: bolder;
+}

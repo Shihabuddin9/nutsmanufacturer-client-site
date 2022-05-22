@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Product = (props) => {
     const { name, img, us, price } = props.product
@@ -16,7 +17,7 @@ const Product = (props) => {
                 <p><span className='text-xs text-gray-500'>FOB Price:</span> <span className='text-red-500 font-medium'>US ${us}</span> <span className='text-xs text-gray-500'>/ price</span></p>
                 <p className='text-xs text-gray-500'>Min. Order: {price} Pieces</p>
                 <div class="card-actions justify-center">
-                    <button class="border border-gray-300 py-1.5 bg-gray-100 w-full hover:text-red-500 rounded text-xs">Contact Now</button>
+                    <Link className='w-full' to="/contactNow"><button class="border border-gray-300 py-1.5 bg-gray-100 w-full hover:text-red-500 rounded text-xs">Contact Now</button></Link>
                 </div>
             </div>
         </div>
