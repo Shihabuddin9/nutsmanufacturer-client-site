@@ -1,16 +1,25 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
+    const [user] = useAuthState(auth)
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
         <li><Link to='/signup'>SignUp</Link></li>
-        <li><Link to='/signin'>SignIn</Link></li>
+
+        {
+            user ? <li><Link onClick={() => signOut(auth)} to='/signin'>Sign Out</Link></li>
+                :
+                <li><Link to='/signin'>SignIn</Link></li>
+        }
     </>
     return (
-        <div class="navbar bg-green-400">
+        <div class="navbar bg-cyan-700">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -20,10 +29,10 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a class="btn btn-ghost normal-case text-xl"><span className='text-red-500 text-3xl font-bold font-serif'>N</span><span className='text-red-500'>utsManufacture</span></a>
+                <Link to='/' class=""><span className='text-white text-3xl font-bold font-serif'>N</span><span className='text-white'>utsManufacture</span></Link>
             </div>
             <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal p-0">
+                <ul class="menu menu-horizontal p-0 text-white">
                     {menuItems}
                 </ul>
             </div>
