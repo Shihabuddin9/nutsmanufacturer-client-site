@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound/NotFound';
 import ContactNow from './pages/HomePages/ContactNow';
 import Signin from './pages/Signin/Signin';
 import Signup from './pages/Signin/Signup';
+import RequireAuth from './pages/Signin/RequireAuth';
 
 
 function App() {
@@ -15,7 +16,13 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/contactNow/:contactId' element={<ContactNow></ContactNow>}></Route>
+
+        <Route path='/contactNow/:contactId' element={
+          <RequireAuth>
+            <ContactNow></ContactNow>
+          </RequireAuth>
+        }></Route>
+
         <Route path='/signin' element={<Signin></Signin>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
