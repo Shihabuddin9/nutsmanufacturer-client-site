@@ -91,7 +91,7 @@ const ViewModal = ({ viewModal }) => {
                         </div>
                     </div>
                     <div class="modal-action">
-                        <Link to={`/contactNow/${_id}`}><label for="view-Modal" class="bg-red-500 hover:bg-red-600 py-2 px-3 text-white cursor-pointer rounded">Contact Now</label></Link>
+                        <Link to={`/contactNow/${_id}`}><label for="view-Modal" class="bg-red-500 hover:bg-red-600 py-2 px-3 text-white cursor-pointer rounded">purchase Now</label></Link>
                     </div>
                 </div>
             </div>

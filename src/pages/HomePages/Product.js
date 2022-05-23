@@ -18,7 +18,7 @@ const Product = ({ product, setViewModal }) => {
                 <p><span className='text-xs text-gray-500'>FOB Price:</span> <span className='text-red-500 font-medium'>US ${us}</span> <span className='text-xs text-gray-500'>/ price</span></p>
                 <p className='text-xs text-gray-500'>Min. Order: {price} Pieces</p>
                 <div class="card-actions justify-center">
-                    <Link className='w-full' to={`/contactNow/${_id}`}><button class="border border-gray-300 py-1.5 bg-gray-100 w-full hover:text-red-500 rounded text-xs">Contact Now</button></Link>
+                    <Link className='w-full' to={`/contactNow/${_id}`}><button class="border border-gray-300 py-1.5 bg-gray-100 w-full hover:text-red-500 rounded text-xs">purchase Now</button></Link>
                 </div>
             </div>
         </div>

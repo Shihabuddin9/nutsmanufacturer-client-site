@@ -18,6 +18,7 @@ const Navbar = () => {
                 <li><Link to='/signin'>SignIn</Link></li>
         }
     </>
+    console.log(user)
     return (
         <div class="navbar bg-cyan-700">
             <div class="navbar-start">
@@ -54,9 +55,9 @@ const Navbar = () => {
                                 </div>
                             </div>
                         </div>
-                        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                            <div class="w-10 rounded-full">
-                                <img src="https://api.lorem.space/image/face?hash=33791" />
+                        <label tabindex="0" class="btn bg-cyan-700 hover:bg-cyan-700 border-0">
+                            <div class="">
+                                <h3 className='text-white hover:text-gray-300'>{user?.displayName}</h3>
                             </div>
                         </label>
                     </div>

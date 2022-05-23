@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import Loading from '../Shared/Loading';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -15,7 +15,7 @@ const Signup = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
-
+    const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
     const navigate = useNavigate()
 
     if (user || guser) {
@@ -23,17 +23,19 @@ const Signup = () => {
     }
 
     let signinError;
-    if (loading || gloading) {
+    if (loading || gloading || updating) {
         return <Loading></Loading>
     }
 
-    if (error || gerror) {
-        signinError = <p>{error?.message || gerror?.message}</p>
+    if (error || gerror || updateerror) {
+        signinError = <p>{error?.message || gerror?.message || updateerror?.message}</p>
     }
 
-    const onSubmit = data => {
+    const onSubmit = async (data) => {
         console.log(data)
-        createUserWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name });
+        console.log('update done')
         reset()
     };
     return (
