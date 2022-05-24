@@ -5,14 +5,14 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 
 const ViewModal = ({ viewModal }) => {
-    const { img, name, price, us, payment, productionCapacity, port, material, type, connection, headStyle, standard, grade, _id } = viewModal
+    const { img, name, price, us, payment, productionCapacity, port, material, type, connection, headStyle, standard, grade, _id, totalQuentity } = viewModal
     return (
         <div>
             <input type="checkbox" id="view-Modal" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
                     <label for="view-Modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <div className='flex justify-between items-center mt-4'>
+                    <div className='md:flex justify-between items-center mt-4'>
                         <div className='mr-5'>
                             <img className='h-64 w-64' src={img} alt="" />
                         </div>
@@ -91,7 +91,9 @@ const ViewModal = ({ viewModal }) => {
                         </div>
                     </div>
                     <div class="modal-action">
-                        <Link to={`/contactNow/${_id}`}><label for="view-Modal" class="bg-red-500 hover:bg-red-600 py-2 px-3 text-white cursor-pointer rounded">purchase Now</label></Link>
+                        <Link to={totalQuentity > 1 ? `/contactNow/${_id}` : ""}><label
+                            disabled={totalQuentity < 1}
+                            for="view-Modal" class="btn btn-sm bg-red-500 hover:bg-red-600 py-2 px-3 text-white rounded border-0 text-xs">purchase Now</label></Link>
                     </div>
                 </div>
             </div>

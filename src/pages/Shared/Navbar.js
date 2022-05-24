@@ -10,15 +10,23 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
-        <li><Link to='/signup'>SignUp</Link></li>
 
         {
-            user ? <li><Link onClick={() => signOut(auth)} to='/signin'>Sign Out</Link></li>
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
+
+        {
+            user ? <li><Link onClick={() => {
+                signOut(auth);
+                localStorage.removeItem('accessToken')
+            }} to='/signin'>Sign Out</Link></li>
                 :
                 <li><Link to='/signin'>SignIn</Link></li>
         }
+        {
+            !user && <li><Link to='/signup'>SignUp</Link></li>
+        }
     </>
-    console.log(user)
     return (
         <div class="navbar bg-cyan-700">
             <div class="navbar-start">
@@ -37,7 +45,7 @@ const Navbar = () => {
                     {menuItems}
                 </ul>
             </div>
-            <div class="navbar-end">
+            <div class="navbar-end hidden md:block">
                 <div class="flex-none">
                     <div class="dropdown dropdown-end">
                         <label tabindex="0" class="btn btn-ghost btn-circle">
@@ -62,6 +70,12 @@ const Navbar = () => {
                         </label>
                     </div>
                 </div>
+            </div>
+            <div className="navbar-end md:hidden">
+                <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
+
             </div>
         </div>
     );

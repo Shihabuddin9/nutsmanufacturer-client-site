@@ -1,22 +1,42 @@
-import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Loading from '../Shared/Loading';
 import './ContactNow.css'
 
 const ContactNow = () => {
-    const { contactId } = useParams()
-    const [product, setProduct] = useState('')
-    useEffect(() => {
-        const url = `http://localhost:5000/products/${contactId}`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setProduct(data));
-    }, [])
-
-
     const { register, handleSubmit, reset } = useForm();
+    const { contactId } = useParams()
+
+    const { isLoading, error, data: product } = useQuery('products', () =>
+        fetch(`http://localhost:5000/products/${contactId}`)
+            .then(res => res.json()
+            )
+    )
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+
     const onSubmit = data => {
         console.log(data)
+
+        fetch('http://localhost:5000/booking', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+
+                toast('Thanks! We will contact you shortly!!')
+
+            })
         reset()
     };
     return (
@@ -30,14 +50,19 @@ const ContactNow = () => {
                 <div className='border py-5 pl-3 bg-gray-100 text-sm md:grid grid-cols-4'>
                     <img className='w-12 mx-auto' src={product.img} alt="" />
                     <p className='col-span-2 my-3 md:my-0'>{product.name}</p>
-                    <input className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-blue-600 focus:outline-none' type="number" placeholder='Quantity' required />
+                    <p className='text-sm'>min-orders {product.piece} Pieces</p>
                 </div>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label className='text-sm' htmlFor="">Content<span className='text-red-500'>*</span></label>
-                    <textarea type="text" name="text" className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-blue-600 focus:outline-none' placeholder='Please enter details such as material,size, application, specifications and other requirements to receive an accurate quote' {...register("contactNow", { required: true })} rows="4" cols="50" />
+                    <textarea type="text" name="text" className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-blue-600 focus:outline-none' placeholder='Please enter details such as material,size, application, specifications and other requirements to receive an accurate quote' {...register("content", { required: true })} rows="4" cols="50" />
+                </div>
+
+                <div className='mt-5'>
+                    <label className='text-sm' htmlFor="">Quantity <span className='text-xs'>(min-orders {`${product.piece}`} and max-orders 10,000)</span> <span className='text-red-500'>*</span></label>
+                    <input min={`${product.piece}`} max="10000" className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-blue-600 focus:outline-none' type="number" placeholder='Quantity' {...register("quantity", { required: true })} />
                 </div>
 
                 <div className='my-5'>

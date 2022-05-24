@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import auth from '../../firebase.init'
 import Loading from '../Shared/Loading';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import useToken from '../../hooks/useToken';
 
 const Signup = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -16,9 +17,10 @@ const Signup = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
+    const [token] = useToken(user || guser)
     const navigate = useNavigate()
 
-    if (user || guser) {
+    if (token) {
         navigate('/')
     }
 
