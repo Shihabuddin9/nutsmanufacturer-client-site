@@ -21,11 +21,11 @@ const Signin = () => {
     let from = location.state?.from?.pathname || "/";
 
 
-    useEffect(() => {
-        if (token) {
-            navigate(from, { replace: true });
-        }
-    }, [token, from, navigate])
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
+
 
     let signinError;
     if (loading || gloading) {

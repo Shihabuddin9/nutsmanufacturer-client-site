@@ -48,9 +48,9 @@ const HomeReview = () => {
                         </div>
                     )
                 }
-            </Carousel>;
+            </Carousel>
         </div>
-    );
-};
+    )
+}
 
 export default HomeReview;

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { faSquarePlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const MyReview = () => {
     const [user] = useAuthState(auth)
@@ -15,7 +18,15 @@ const MyReview = () => {
     }, [user])
     return (
         <div>
-            <h1 className='text-sm mt-2 font-medium'>My Review: <span className='bg-red-600 text-white rounded-full px-2.5 text-xs py-1'>{reviews.length}</span></h1>
+            <div className='flex items-center'>
+                <h1 className='text-sm mt-2 font-medium'>My Review: <span className='bg-red-600 text-white rounded-full px-2.5 text-xs py-1'>{reviews.length}</span></h1>
+
+                <span className='inline'>
+                    <Link to='/reviews'>
+                        <span className='md:ml-10 md:inline block'><FontAwesomeIcon icon={faSquarePlus} /> <span className='text-sm font-medium cursor-pointer hover:text-gray-400 duration-500'>Add New Review</span></span>
+                    </Link>
+                </span>
+            </div>
 
             <div className='grid grid-cols-3 gap-5 my-10'>
                 {
@@ -38,7 +49,7 @@ const MyReview = () => {
 
                     <div class="stat">
                         <div class="stat-title">Reviews</div>
-                        <div class="stat-value">31K</div>
+                        <div class="stat-value">{reviews.length}+K</div>
                         <div class="stat-desc">Jan 1st - Feb 1st</div>
                     </div>
 
