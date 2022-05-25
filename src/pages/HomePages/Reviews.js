@@ -47,8 +47,13 @@ const Reviews = () => {
                     </div>
 
                     <div className='my-5'>
-                        <label className='text-sm' htmlFor="">Email Address<span className='text-red-500'>*</span></label>
+                        <label className='text-sm' htmlFor="">Email Address</label>
                         <input name="email" className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none' type="email" {...register("email", { required: true })} defaultValue={user.email} readOnly />
+                    </div>
+
+                    <div className='my-5'>
+                        <label className='text-sm' htmlFor="">Name</label>
+                        <input name="email" className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none' type="email" {...register("name", { required: true })} defaultValue={user.displayName} readOnly />
                     </div>
 
                     <input className='bg-red-500 hover:bg-red-600 cursor-pointer py-2 px-5 rounded text-white text-xs mt-2' type="submit" value="Add Review" />
