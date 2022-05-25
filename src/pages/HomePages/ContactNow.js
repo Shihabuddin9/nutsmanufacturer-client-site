@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
+import PageTitle from '../Shared/PageTitle';
 import './ContactNow.css'
 
 const ContactNow = () => {
@@ -41,6 +42,7 @@ const ContactNow = () => {
     };
     return (
         <div className='my-10 md:mx-32 mx-3'>
+            <PageTitle title="Booking Now"></PageTitle>
             <div>
                 <h1 className='inline-block mb-6 mr-5'><Link to='/'><span className='text-red-500 text-5xl font-bold font-serif'>N</span><span className='text-red-500 md:text-3xl'>utsManufacture</span></Link></h1>
                 <small>Send Inquiry</small>

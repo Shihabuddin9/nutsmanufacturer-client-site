@@ -4,10 +4,12 @@ import notFound from '../images/not-found-img/404.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import './NotFound.css'
+import PageTitle from '../Shared/PageTitle';
 
 const NotFound = () => {
     return (
         <div className='pt-28 pb-14 flex justify-evenly items-center'>
+            <PageTitle title="Not Found"></PageTitle>
             <div>
                 <h1 className='not-found'>404</h1>
                 <h2 className='text-gray-900 font-semibold text-4xl'>Oops! Page Not Found</h2>

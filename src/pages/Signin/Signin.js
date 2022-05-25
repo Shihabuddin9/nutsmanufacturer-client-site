@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
+import PageTitle from '../Shared/PageTitle';
 
 const Signin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -41,6 +42,7 @@ const Signin = () => {
     };
     return (
         <div className=' h-screen flex justify-center items-center'>
+            <PageTitle title="Signin"></PageTitle>
             <div className='shadow-xl p-6'>
                 <h1 className='mb-2 font-medium'>Please Signin</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>

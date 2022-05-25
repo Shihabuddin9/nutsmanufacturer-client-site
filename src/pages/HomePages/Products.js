@@ -17,6 +17,7 @@ const Products = () => {
 
     return (
         <div className='px-5 py-9 bg-gray-100'>
+
             <h1 className='border py-2 w-full pl-2'>
                 <span>
                     <span className='font-bold'>All Products: </span><span className='text-xs font-medium text-gray-400'>Total {products?.length} Products</span>

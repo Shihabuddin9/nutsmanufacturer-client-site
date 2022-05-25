@@ -6,6 +6,7 @@ import auth from '../../firebase.init'
 import Loading from '../Shared/Loading';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import useToken from '../../hooks/useToken';
+import PageTitle from '../Shared/PageTitle';
 
 const Signup = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -42,6 +43,7 @@ const Signup = () => {
     };
     return (
         <div className=' h-screen flex justify-center items-center'>
+            <PageTitle title="Signup"></PageTitle>
             <div className='shadow-xl p-6'>
                 <h1 className='mb-2 font-medium'>Create Account</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>

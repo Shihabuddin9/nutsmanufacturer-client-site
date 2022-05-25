@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { faSquarePlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PageTitle from '../Shared/PageTitle';
 
 const MyReview = () => {
     const [user] = useAuthState(auth)
@@ -18,6 +19,7 @@ const MyReview = () => {
     }, [user])
     return (
         <div>
+            <PageTitle title="My Reviews"></PageTitle>
             <div className='flex items-center'>
                 <h1 className='text-sm mt-2 font-medium'>My Review: <span className='bg-red-600 text-white rounded-full px-2.5 text-xs py-1'>{reviews.length}</span></h1>
 

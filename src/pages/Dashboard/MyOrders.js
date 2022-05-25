@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import PageTitle from '../Shared/PageTitle';
 
 const MyOrders = () => {
     const [user] = useAuthState(auth)
@@ -16,6 +17,7 @@ const MyOrders = () => {
 
     return (
         <div>
+            <PageTitle title="My Orders"></PageTitle>
             <h1 className='text-sm my-2 font-medium'>My Orders: <span className='bg-red-600 text-white rounded-full px-2.5 py-1 text-xs'>{myOrders.length}</span></h1>
 
             <div class="overflow-x-auto">

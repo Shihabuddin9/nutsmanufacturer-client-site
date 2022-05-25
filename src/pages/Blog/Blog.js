@@ -1,8 +1,10 @@
 import React from 'react';
+import PageTitle from '../Shared/PageTitle';
 
 const Blog = () => {
     return (
         <div className='bg-gray-100 flex justify-center items-center'>
+            <PageTitle title="Blogs"></PageTitle>
             <div className='w-2/4'>
 
                 <div className='py-12'>
