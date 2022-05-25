@@ -2,6 +2,7 @@ import React from 'react';
 import FitureImg from './FitureImg';
 import HomeReview from './HomeReview';
 import Products from './Products';
+import ProductsTools from './ProductsTools';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <FitureImg></FitureImg>
             <HomeReview></HomeReview>
             <Products></Products>
+            <ProductsTools></ProductsTools>
         </div>
     );
 };

@@ -16,8 +16,17 @@ const Products = () => {
     }, [])
 
     return (
-        <div className='px-5 md:py-9 bg-gray-100'>
-            <h1 className='border py-2 w-full pl-2'><span className='font-bold'>All Products: </span><span className='text-xs font-medium text-gray-400'>Total {products?.length} Products</span> <Link to='/reviews'><span className='ml-10'><FontAwesomeIcon icon={faSquarePlus} /> <span className='text-sm font-medium cursor-pointer hover:text-gray-400 duration-500'>Add New Review</span></span></Link> </h1>
+        <div className='px-5 py-9 bg-gray-100'>
+            <h1 className='border py-2 w-full pl-2'>
+                <span>
+                    <span className='font-bold'>All Products: </span><span className='text-xs font-medium text-gray-400'>Total {products?.length} Products</span>
+                </span>
+
+                <Link to='/reviews'>
+                    <span className='md:ml-10 md:inline block'><FontAwesomeIcon icon={faSquarePlus} /> <span className='text-sm font-medium cursor-pointer hover:text-gray-400 duration-500'>Add New Review</span></span>
+                </Link>
+
+            </h1>
             <div className='grid md:grid-cols-4 grid-cols-1 gap-6 mt-10'>
                 {
                     products && products?.map(product => <Product

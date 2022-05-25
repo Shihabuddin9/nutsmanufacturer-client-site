@@ -26,7 +26,7 @@ const Reviews = () => {
     };
 
     return (
-        <div className='flex justify-center items-center py-24 bg-gray-200'>
+        <div className='flex justify-center items-center py-24 px-2 bg-gray-200'>
             <div>
                 <h1 className='text-center text-2xl text-purple-700 font-medium mb-16'>please write your experience with products!!</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>

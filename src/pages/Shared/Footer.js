@@ -3,7 +3,7 @@ import ScrollToTop from "react-scroll-to-top";
 
 const Footer = () => {
     return (
-        <footer class="footer p-10 bg-neutral text-neutral-content">
+        <footer class="footer p-10 bg-neutral text-neutral-content mt-10">
             <ScrollToTop smooth top="100" width='40' height='30' viewBox="20 -60 256 256" />
             <div>
                 <span class="footer-title">Services</span>
