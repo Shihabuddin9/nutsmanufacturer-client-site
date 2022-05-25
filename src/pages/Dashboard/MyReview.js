@@ -11,7 +11,7 @@ const MyReview = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/reviews?email=${user.email}`)
+            fetch(`https://hidden-brook-45557.herokuapp.com/reviews?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => setReviews(data))
         }

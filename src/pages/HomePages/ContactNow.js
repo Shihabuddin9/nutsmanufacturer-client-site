@@ -10,7 +10,7 @@ const ContactNow = () => {
     const { contactId } = useParams()
 
     const { isLoading, error, data: product } = useQuery('products', () =>
-        fetch(`http://localhost:5000/products/${contactId}`)
+        fetch(`https://hidden-brook-45557.herokuapp.com/products/${contactId}`)
             .then(res => res.json()
             )
     )
@@ -23,7 +23,7 @@ const ContactNow = () => {
     const onSubmit = data => {
         console.log(data)
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://hidden-brook-45557.herokuapp.com/booking', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

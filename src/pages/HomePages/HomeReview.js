@@ -30,7 +30,7 @@ const HomeReview = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/allReviews`)
+            fetch(`https://hidden-brook-45557.herokuapp.com/allReviews`)
                 .then(res => res.json())
                 .then(data => setAllReviews(data))
         }

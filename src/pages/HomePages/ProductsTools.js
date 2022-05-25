@@ -6,7 +6,7 @@ import './ProductsTools.css'
 
 const ProductsTools = () => {
     return (
-        <div className='productTools md:py-14 py-8'>
+        <div className='productTools md:py-14 py-8 mb-10'>
             <div className='flex justify-center items-center'>
                 <h1 className='text-2xl font-bold text-white'>FASTENER</h1>
                 <div className='bg-red-800 rounded-full px-4 ml-7'>

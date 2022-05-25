@@ -9,7 +9,7 @@ const Reviews = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://hidden-brook-45557.herokuapp.com/reviews', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
