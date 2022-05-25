@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const AllUserRow = ({ user, refetch }) => {
+const AllUserRow = ({ user, refetch, index }) => {
     const { email, role } = user
 
     const makeAdmin = () => {
@@ -28,7 +28,7 @@ const AllUserRow = ({ user, refetch }) => {
 
     return (
         <tr>
-            <th>1</th>
+            <th>{index + 1}</th>
             <td>{email}</td>
             <td>{role ? <button class="btn btn-xs text-green-500">Already Admin</button> : <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}</td>
             <td><button class="btn btn-xs">Remove User</button></td>

@@ -29,12 +29,12 @@ const HomeReview = () => {
     const [allReviews, setAllReviews] = useState([])
 
     useEffect(() => {
-        if (user) {
-            fetch(`https://hidden-brook-45557.herokuapp.com/allReviews`)
-                .then(res => res.json())
-                .then(data => setAllReviews(data))
-        }
-    }, [user])
+
+        fetch(`https://hidden-brook-45557.herokuapp.com/allReviews`)
+            .then(res => res.json())
+            .then(data => setAllReviews(data))
+
+    }, [])
     return (
         <div className='pt-5 bg-gray-100'>
             <h1 className='md:text-2xl mt-2 font-medium text-center mb-8'>Our Costomer Reviews: <span className='bg-red-600 text-white rounded-full px-2.5 text-sm py-1'>{allReviews.length}</span></h1>
