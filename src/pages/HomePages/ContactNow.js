@@ -10,6 +10,7 @@ const ContactNow = () => {
     const { register, handleSubmit, reset } = useForm();
     const { contactId } = useParams()
 
+
     const { isLoading, error, data: product } = useQuery('products', () =>
         fetch(`https://hidden-brook-45557.herokuapp.com/products/${contactId}`)
             .then(res => res.json()
@@ -33,7 +34,6 @@ const ContactNow = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
 
                 toast('Thanks! We will contact you shortly!!')
 
@@ -50,9 +50,9 @@ const ContactNow = () => {
             <div className='mb-8'>
                 <p className='border py-3 pl-3 w-full bg-gray-100 text-sm'>NINGBO YI PIAN HONG FASTENER CO., LTD.</p>
                 <div className='border py-5 pl-3 bg-gray-100 text-sm md:grid grid-cols-4'>
-                    <img className='w-12 mx-auto' src={product.img} alt="" />
-                    <p className='col-span-2 my-3 md:my-0'>{product.name}</p>
-                    <p className='text-sm'>min-orders {product.piece} Pieces</p>
+                    <img className='w-12 mx-auto' src={product?.img} alt="" />
+                    <p className='col-span-2 my-3 md:my-0'>{product?.name}</p>
+                    <p className='text-sm'>min-orders {product?.piece} Pieces</p>
                 </div>
             </div>
 

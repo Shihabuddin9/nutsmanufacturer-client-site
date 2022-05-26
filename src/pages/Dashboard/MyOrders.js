@@ -29,13 +29,14 @@ const MyOrders = () => {
                             <th>name</th>
                             <th>email</th>
                             <th>Favorite Color</th>
+                            <th>image</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            myOrders.map(myOrder =>
+                            myOrders.map((myOrder, index) =>
                                 <tr>
-                                    <th>1</th>
+                                    <th>{index + 1}</th>
                                     <td>{user.displayName}</td>
                                     <td>{myOrder.email}</td>
                                     <td>Blue</td>

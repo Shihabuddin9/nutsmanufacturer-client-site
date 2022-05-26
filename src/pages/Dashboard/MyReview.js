@@ -24,7 +24,7 @@ const MyReview = () => {
                 <h1 className='text-sm mt-2 font-medium'>My Review: <span className='bg-red-600 text-white rounded-full px-2.5 text-xs py-1'>{reviews.length}</span></h1>
 
                 <span className='inline'>
-                    <Link to='/reviews'>
+                    <Link to='/dashboard/reviews'>
                         <span className='md:ml-10 md:inline block'><FontAwesomeIcon icon={faSquarePlus} /> <span className='text-sm font-medium cursor-pointer hover:text-gray-400 duration-500'>Add New Review</span></span>
                     </Link>
                 </span>
