@@ -5,10 +5,14 @@ import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
 import PageTitle from '../Shared/PageTitle';
 import './ContactNow.css'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init'
 
 const ContactNow = () => {
+    const [user] = useAuthState(auth);
     const { register, handleSubmit, reset } = useForm();
     const { contactId } = useParams()
+
 
 
     const { isLoading, error, data: product } = useQuery('products', () =>
@@ -16,7 +20,6 @@ const ContactNow = () => {
             .then(res => res.json()
             )
     )
-
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -69,7 +72,17 @@ const ContactNow = () => {
 
                 <div className='my-5'>
                     <label className='text-sm' htmlFor="">Email Address<span className='text-red-500'>*</span></label>
-                    <input name="email" className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-blue-600 focus:outline-none' type="email" {...register("email", { required: true })} placeholder="enter your email address" />
+                    <input name="email" className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-blue-600 focus:outline-none' type="email" {...register("email", { required: true })} defaultValue={user?.email} />
+                </div>
+
+                <div className='my-5'>
+                    <label className='text-sm' htmlFor="">Price</label>
+                    <input name="us" className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-blue-600 focus:outline-none' type="number" {...register("us", { required: true })} defaultValue={product?.us} readOnly />
+                </div>
+
+                <div className='my-5'>
+                    <label className='text-sm' htmlFor="">Available Quentity</label>
+                    <input name="totalQuentity" className='placeholder-style block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-blue-600 focus:outline-none' type="number" {...register("totalQuentity", { required: true })} defaultValue={product?.totalQuentity} readOnly />
                 </div>
 
                 <input className='bg-red-500 hover:bg-red-600 cursor-pointer py-2 px-5 rounded text-white text-xs' type="submit" value="Send Inquiry Now" />

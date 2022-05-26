@@ -45,12 +45,12 @@ const AddPrduct = () => {
 
                 <div className='mt-5'>
                     <label className='font-medium'>Photo URL<span className='text-red-600'>*</span></label>
-                    <input className='form-control block w-full md:px-3 px-1 py-1.5 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' {...register("img", { required: true })} placeholder="photo url" />
+                    <input className='form-control block w-full md:px-3 px-1 py-1.5 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' {...register("img", { required: true })} placeholder="photo url" autoComplete='off' />
                 </div>
 
                 <div className='my-5'>
                     <label className='font-medium'>Email</label>
-                    <input type="email" className='form-control block w-full md:px-3 px-1 py-1.5 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' {...register("email", { required: true })} defaultValue={user.email} readOnly />
+                    <input type="email" className='form-control block w-full md:px-3 px-1 py-1.5 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' {...register("email", { required: true })} defaultValue={user?.email} readOnly />
                 </div>
 
                 <input className='bg-red-500 hover:bg-red-600 cursor-pointer py-2 px-5 rounded text-white text-xs' type="submit" value="Add and Continue" />

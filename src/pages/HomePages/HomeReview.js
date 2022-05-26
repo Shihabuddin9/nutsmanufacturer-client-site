@@ -40,7 +40,7 @@ const HomeReview = () => {
             <h1 className='md:text-2xl mt-2 font-medium text-center mb-8'>Our Costomer Reviews: <span className='bg-red-600 text-white rounded-full px-2.5 text-sm py-1'>{allReviews.length}</span></h1>
             <Carousel responsive={responsive} className="">
                 {
-                    allReviews.map(review =>
+                    allReviews?.map(review =>
                         <div key={review._id} className="shadow p-3">
                             <h4 class="text-lg text-center font-medium text-cyan-700 pb-2">{review.name}</h4>
 

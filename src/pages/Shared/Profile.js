@@ -9,7 +9,7 @@ const Profile = () => {
         <div>
             <PageTitle title="My Profile"></PageTitle>
             <h1>My Profile</h1>
-            <div className='flex justify-center items-center pt-32'>
+            <div className='flex justify-center items-center h-screen'>
                 <div>
                     <h3 className='text-center text-2xl'>Name: {user.displayName}</h3>
                     <p className='text-xl'>Email: {user.email}</p>

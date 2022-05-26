@@ -14,7 +14,7 @@ const MyOrders = () => {
                 .then(data => setMyOrders(data))
         }
     }, [user])
-
+    console.log(myOrders)
     return (
         <div>
             <PageTitle title="My Orders"></PageTitle>
@@ -26,10 +26,10 @@ const MyOrders = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>name</th>
-                            <th>email</th>
-                            <th>Favorite Color</th>
-                            <th>image</th>
+                            <th>Email</th>
+                            <th>Price</th>
+                            <th>total price</th>
+                            <th>payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,8 +37,9 @@ const MyOrders = () => {
                             myOrders.map((myOrder, index) =>
                                 <tr>
                                     <th>{index + 1}</th>
-                                    <td>{user.displayName}</td>
-                                    <td>{myOrder.email}</td>
+                                    <td>{user.email}</td>
+                                    <td>${myOrder.us}</td>
+                                    <td>${(myOrder.us) * (myOrder.quantity)}</td>
                                     <td>Blue</td>
                                 </tr>)
                         }
