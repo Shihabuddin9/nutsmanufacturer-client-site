@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -11,7 +10,7 @@ const AddPrduct = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://hidden-brook-45557.herokuapp.com/addProduct', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

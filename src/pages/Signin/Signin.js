@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -39,6 +38,7 @@ const Signin = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
+
     };
     return (
         <div className=' h-screen flex justify-center items-center'>

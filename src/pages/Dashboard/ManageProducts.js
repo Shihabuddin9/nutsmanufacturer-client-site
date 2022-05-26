@@ -10,7 +10,7 @@ const ManageProducts = () => {
     // const [viewModal, setViewModal] = useState(null)
 
     useEffect(() => {
-        fetch('http://localhost:5000/addProducts')
+        fetch('https://hidden-brook-45557.herokuapp.com/addProducts')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -19,7 +19,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure, you want to delete?')
         if (confirm) {
-            const url = `http://localhost:5000/delete/${id}`
+            const url = `https://hidden-brook-45557.herokuapp.com/delete/${id}`
             fetch(url, {
                 method: 'DELETE',
             })
