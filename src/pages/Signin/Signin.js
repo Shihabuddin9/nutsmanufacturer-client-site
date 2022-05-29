@@ -58,7 +58,7 @@ const Signin = () => {
                                 value: /[A-Za-z]{3}/,
                                 message: 'Provider a valid Email'
                             }
-                        })} />
+                        })} defaultValue="hero@gmail.com" />
                         {errors.email?.type === 'required' && <span className='label-text-alt text-red-500 inline-block'>{errors.email.message}</span>}
                         {errors.email?.type === 'pattern' && <span className='label-text-alt text-red-500 inline-block'>{errors.email.message}</span>}
                     </div>
@@ -74,7 +74,7 @@ const Signin = () => {
                                 value: 6,
                                 message: 'Must be 6 characters or longer'
                             }
-                        })} />
+                        })} defaultValue="123456" />
                         {errors.password?.type === 'required' && <span className='label-text-alt text-red-500'>{errors.password.message}</span>}
                         {errors.password?.type === 'minLength' && <span className='label-text-alt text-red-500'>{errors.password.message}</span>}
                     </div>

@@ -22,14 +22,14 @@ const ProductsTools = () => {
                     <h2 className='md:text-2xl text-xl text-center font-bold '>POWERFUL MANUFACTURER</h2>
                 </div>
                 <div className=' mt-4 grid md:grid-cols-4 grid-cols-2 gap-4 font-bold'>
-                    <p className=''><FontAwesomeIcon className=' ' icon={faCheckCircle} /> Fastener</p>
-                    <p><FontAwesomeIcon className='' icon={faCheckCircle} /> Bolt</p>
-                    <p><FontAwesomeIcon className='' icon={faCheckCircle} /> Thread</p>
-                    <p><FontAwesomeIcon className='' icon={faCheckCircle} /> Carbon Steel</p>
-                    <p><FontAwesomeIcon className='' icon={faCheckCircle} /> Nut</p>
-                    <p><FontAwesomeIcon className='' icon={faCheckCircle} /> Special Bolt</p>
-                    <p><FontAwesomeIcon className='' icon={faCheckCircle} /> Washer</p>
-                    <p><FontAwesomeIcon className='' icon={faCheckCircle} /> Stainless Steel</p>
+                    <p className='cursor-pointer'><FontAwesomeIcon className=' ' icon={faCheckCircle} /> Fastener</p>
+                    <p className='cursor-pointer'><FontAwesomeIcon icon={faCheckCircle} /> Bolt</p>
+                    <p className='cursor-pointer'><FontAwesomeIcon icon={faCheckCircle} /> Thread</p>
+                    <p className='cursor-pointer'><FontAwesomeIcon icon={faCheckCircle} /> Carbon Steel</p>
+                    <p className='cursor-pointer'><FontAwesomeIcon icon={faCheckCircle} /> Nut</p>
+                    <p className='cursor-pointer'><FontAwesomeIcon icon={faCheckCircle} /> Special Bolt</p>
+                    <p className='cursor-pointer'><FontAwesomeIcon icon={faCheckCircle} /> Washer</p>
+                    <p className='cursor-pointer'><FontAwesomeIcon icon={faCheckCircle} /> Stainless Steel</p>
                 </div>
             </div>
         </div>

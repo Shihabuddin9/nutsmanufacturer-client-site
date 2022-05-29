@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import PageTitle from '../Shared/PageTitle';
 
@@ -14,7 +15,7 @@ const MyOrders = () => {
                 .then(data => setMyOrders(data))
         }
     }, [user])
-    console.log(myOrders)
+
     return (
         <div>
             <PageTitle title="My Orders"></PageTitle>
@@ -27,6 +28,7 @@ const MyOrders = () => {
                         <tr>
                             <th></th>
                             <th>Email</th>
+                            <th>Quentity</th>
                             <th>Price</th>
                             <th>total price</th>
                             <th>payment</th>
@@ -38,9 +40,14 @@ const MyOrders = () => {
                                 <tr>
                                     <th>{index + 1}</th>
                                     <td>{user.email}</td>
+                                    <td>{myOrder.quantity} Pieces</td>
                                     <td>${myOrder.us}</td>
                                     <td>${(myOrder.us) * (myOrder.quantity)}</td>
-                                    <td>Blue</td>
+                                    <td>
+                                        {(myOrder.us && !myOrder.paid) && <Link to={`/dashboard/payment/${myOrder._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
+
+                                        {(myOrder.us && myOrder.paid) && <span className='text-success'>paid</span>}
+                                    </td>
                                 </tr>)
                         }
                     </tbody>
