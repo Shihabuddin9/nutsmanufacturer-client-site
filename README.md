@@ -4,13 +4,22 @@ https://nutsmanufacture.netlify.app/
 
 #### technology used
 + Javascript
-+ Tailwind
-+ React
++ React-Tailwind CSS
++ React.js
++ react router
++ React form
++ react query
 + firebase
 + node.js
-+ express
++ express.js
 + mongodb
-+ react router
+
+### Tools used
++ GitHub
++ Netlify
++ Firebase
++ Heroku
+
 
 ## Description
 

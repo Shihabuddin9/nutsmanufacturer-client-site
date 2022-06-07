@@ -41,9 +41,9 @@ const Signin = () => {
 
     };
     return (
-        <div className=' h-screen flex justify-center items-center'>
+        <div className=' h-screen flex justify-center items-center bg-slate-300'>
             <PageTitle title="Signin"></PageTitle>
-            <div className='shadow-xl p-6'>
+            <div className='shadow-xl p-6 border border-slate-200'>
                 <h1 className='mb-2 font-medium'>Please Signin</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
